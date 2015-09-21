@@ -677,11 +677,13 @@ class NodeRepository implements NodeRepositoryInterface
         $tier = array_shift($tiers);
 
         $found = false;
-        foreach ($result as &$node) {
-            if ($node['id'] === $uuid) {
-                $node['_embedded']['nodes'] = $tier;
-                $found = true;
-                break;
+        if (is_array($result)) {
+            foreach ($result as &$node) {
+                if ($node['id'] === $uuid) {
+                    $node['_embedded']['nodes'] = $tier;
+                    $found = true;
+                    break;
+                }
             }
         }
 
