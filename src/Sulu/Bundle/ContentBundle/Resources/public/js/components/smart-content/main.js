@@ -230,7 +230,7 @@ define(['services/husky/util'], function(util) {
                     '   <div class="check<%= disabled %>">',
                     '       <label>',
                     '           <div class="custom-checkbox">',
-                    '               <input type="checkbox" class="includeSubCheck form-element"<%= includeSubCheckedStr %>/>',
+                    '               <input type="checkbox" id="include-sub-folder" class="includeSubCheck form-element"<%= includeSubCheckedStr %>/>',
                     '               <span class="icon"></span>',
                     '           </div>',
                     '           <span class="description"><%= includeSubStr %></span>',
@@ -817,6 +817,10 @@ define(['services/husky/util'], function(util) {
             this.sandbox.dom.on(this.$el, 'click', function() {
                 this.sandbox.emit('husky.overlay.smart-content.' + this.options.instanceName + '.slide-to', this.categoriesSlide);
             }.bind(this), '#select-categories-action');
+
+            this.sandbox.dom.on(this.$el, 'change', function(a, b, c) {
+                
+            }.bind(this), '#include-sub-folder');
         },
 
         /**
